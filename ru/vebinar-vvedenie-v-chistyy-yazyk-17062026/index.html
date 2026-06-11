@@ -320,7 +320,7 @@
           url: location.href,
           userAgent: navigator.userAgent
         });
-        try{ sessionStorage.setItem('df_reg', JSON.stringify({firstName,lastName,email})); }catch(e){}
+        try{ const _d=JSON.stringify({firstName,lastName,email}); sessionStorage.setItem('df_reg',_d); localStorage.setItem('df_reg',_d); }catch(e){}
         window.location.href = '../spasibo/';
       } catch (err) {
         console.error(err);

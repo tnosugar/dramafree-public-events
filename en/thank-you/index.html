@@ -96,7 +96,7 @@
     const btn = document.getElementById('consultBtn');
     const okEl = document.getElementById('consultOk');
 
-    try { const s = JSON.parse(sessionStorage.getItem('df_reg')||'{}');
+    try { const s = JSON.parse(sessionStorage.getItem('df_reg')||localStorage.getItem('df_reg')||'{}');
       if (s.firstName) form.firstName.value = s.firstName;
       if (s.lastName)  form.lastName.value  = s.lastName;
       if (s.email)     form.email.value     = s.email;
