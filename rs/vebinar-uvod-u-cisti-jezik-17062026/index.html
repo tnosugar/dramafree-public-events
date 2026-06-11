@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uvod u Čisti jezik za timove i grupe — #DramaFree vebinar</title>
+<meta name="description" content="Besplatni online vebinar: Čisti jezik (Clean Language) i Sistemsko modeliranje za timove i grupe. Manje pretpostavki. Manje drame. Više razumevanja.">
+<meta property="og:title" content="Uvod u Čisti jezik za timove i grupe — #DramaFree vebinar">
+<meta property="og:description" content="Besplatni online vebinar o Čistom jeziku i Sistemskom modeliranju. Sreda, 17. jun 2026, 18:00–20:00.">
+<meta property="og:image" content="../../assets/cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --df-red:#E51B21; --df-green:#008F67; --df-coral:#FF8562; --df-teal:#244858;
+    --df-sage:#8FBAAF; --df-ink:#2B2B2B; --df-gray:#6b6b6b; --df-line:#E4E0D8;
+    --df-bg:#FFFFFF; --df-bg-warm:#FAF8F3;
+    --df-serif:"Cormorant", Georgia, "Times New Roman", serif;
+    --df-body:Georgia, "Times New Roman", Times, serif;
+    --df-ui:system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--df-ink);background:var(--df-bg);font-family:var(--df-body);line-height:1.65;font-size:18px}
+  a{color:var(--df-red)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--df-serif);color:var(--df-teal);font-weight:600;line-height:1.12;margin:0}
+  .kicker{font-family:var(--df-ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--df-red);font-size:13px}
+
+  .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:13px 28px;background:var(--df-bg);border-bottom:1px solid var(--df-line)}
+  .topbar img{height:40px}
+  .topbar .btn{padding:9px 24px;font-size:14px}
+  .topbar .topright{display:flex;align-items:center;gap:18px}
+  .langnav{display:flex;gap:10px;font-family:var(--df-ui);font-size:13px;font-weight:700}
+  .langnav a{color:var(--df-gray);text-decoration:none;letter-spacing:.04em}
+  .langnav a.active,.langnav a:hover{color:var(--df-teal)}
+
+  .btn{display:inline-block;font-family:var(--df-ui);font-weight:700;font-size:16px;text-decoration:none;
+       background:var(--df-red);color:#fff;padding:14px 32px;border-radius:40px}
+  .btn:hover{background:#c8161b}
+  .btn.ghost{background:transparent;color:var(--df-teal);border:2px solid var(--df-teal);padding:12px 28px}
+  .btn.ghost:hover{background:var(--df-teal);color:#fff}
+
+  .hero{background:var(--df-bg-warm);border-bottom:1px solid var(--df-line);padding:60px 0 64px}
+  .hero .wrap{max-width:1080px;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .hero h1{font-size:clamp(40px,5.6vw,64px);margin:14px 0 0}
+  .hero .sub{font-family:var(--df-serif);font-style:italic;font-size:clamp(22px,2.6vw,28px);color:var(--df-green);margin:16px 0 0}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:var(--df-ui);font-weight:600;color:var(--df-teal);font-size:15px;margin:26px 0 0}
+  .hero .meta span .d{color:var(--df-coral);margin-right:9px;font-weight:700}
+  .hero .ctas{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .hero .cap{font-family:var(--df-ui);font-size:13px;color:var(--df-gray);margin-top:14px}
+  .hero .lead-by{font-family:var(--df-ui);font-size:14px;color:var(--df-gray);margin-top:22px;padding-top:18px;border-top:1px solid var(--df-line)}
+  .hero .lead-by strong{color:var(--df-teal)}
+  .hero-visual{position:relative;justify-self:center;width:100%;max-width:380px}
+  .hero-visual .accent{position:absolute;right:-18px;bottom:-18px;width:86%;height:86%;background:var(--df-sage);border-radius:18px;z-index:0}
+  .hero-visual img{position:relative;z-index:1;width:100%;border-radius:18px;display:block;border:6px solid #fff;box-shadow:0 14px 32px rgba(36,72,88,.16)}
+  @media(max-width:820px){ .hero{padding:40px 0} .hero .wrap{grid-template-columns:1fr;gap:34px} .hero-visual{order:-1;max-width:300px} }
+
+  section.block{padding:48px 0}
+  section.block.alt{background:var(--df-bg-warm)}
+  h2{font-size:clamp(28px,4.5vw,40px);margin-bottom:8px}
+  .block .kicker{margin-bottom:6px;display:block}
+  p{margin:0 0 14px}
+  .item{margin:4px 0;font-size:17px}
+  .lead-strong{font-weight:600;color:var(--df-teal);font-family:var(--df-ui);font-size:17px;margin-top:18px}
+  .motto{font-family:var(--df-serif);font-style:italic;font-size:26px;color:var(--df-green);margin:18px 0}
+
+  .presenter{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap;margin-top:8px}
+  .presenter img{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--df-coral);flex:0 0 auto}
+  .presenter .pbody{flex:1;min-width:260px}
+
+  blockquote{margin:0 0 18px;padding:2px 0 2px 22px;border-left:3px solid var(--df-green);
+             font-family:var(--df-serif);font-style:italic;font-size:23px;color:var(--df-teal);line-height:1.3}
+  .src{font-family:var(--df-ui);font-size:12px;letter-spacing:.04em;color:var(--df-gray);text-transform:uppercase}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+  .g{background:#fff;border:1px solid var(--df-line);border-radius:14px;padding:24px 22px;font-family:var(--df-ui);font-size:15px;line-height:1.55;color:var(--df-ink)}
+  .g .num{display:block;font-family:var(--df-serif);font-size:26px;font-weight:600;color:var(--df-coral);line-height:1;margin-bottom:12px}
+  @media(max-width:720px){ .grid3{grid-template-columns:1fr} }
+
+  .details-row{display:flex;margin-top:20px;background:#fff;border:1px solid var(--df-line);border-radius:14px;overflow:hidden}
+  .details-row .d{flex:1;padding:20px 14px;text-align:center;border-right:1px solid var(--df-line)}
+  .details-row .d:last-child{border-right:none}
+  .details-row .k{display:block;font-family:var(--df-ui);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--df-gray);margin-bottom:7px}
+  .details-row .v{display:block;font-family:var(--df-serif);font-size:19px;color:var(--df-teal);font-weight:600;line-height:1.2}
+  @media(max-width:640px){ .details-row{flex-wrap:wrap} .details-row .d{flex:1 0 50%;border-bottom:1px solid var(--df-line)} .details-row .v{font-size:17px} }
+
+  .cta{background:var(--df-teal);color:#fff;text-align:center;padding:56px 24px}
+  .cta h2{color:#fff}
+  .cta p{color:#cdd8de;max-width:560px;margin:8px auto 22px}
+  .cta .btn{background:var(--df-coral);color:#1a1a1a}
+
+  footer{font-family:var(--df-ui);font-size:14px;color:var(--df-gray);text-align:center;padding:36px 24px}
+  footer img{height:38px;margin-bottom:12px}
+  footer a{color:var(--df-teal);text-decoration:none}
+
+  /* registration modal */
+  .reg-overlay{position:fixed;inset:0;z-index:100;display:none;background:rgba(36,72,88,.6);
+               align-items:center;justify-content:center;padding:20px;overflow:auto}
+  .reg-overlay.open{display:flex}
+  .reg-card{background:#fff;border-radius:18px;max-width:520px;width:100%;padding:42px 40px;position:relative;
+            box-shadow:0 24px 60px rgba(0,0,0,.28)}
+  .reg-close{position:absolute;top:12px;right:16px;border:none;background:none;font-size:32px;line-height:1;
+             color:var(--df-gray);cursor:pointer;padding:6px}
+  .reg-close:hover{color:var(--df-ink)}
+  .reg-card .kicker{display:block;margin-bottom:6px}
+  .reg-card h2{font-size:32px;margin:0 0 4px}
+  .reg-sub{font-family:var(--df-ui);font-size:14px;color:var(--df-gray);margin:0 0 24px}
+  .reg-card form{display:flex;flex-direction:column;gap:16px}
+  .reg-card label{font-family:var(--df-ui);font-size:12px;font-weight:700;color:var(--df-teal);
+                  text-transform:uppercase;letter-spacing:.05em;display:flex;flex-direction:column;gap:6px}
+  .reg-card input{font-family:var(--df-body);font-size:17px;font-weight:400;padding:12px 14px;
+                  border:1px solid var(--df-line);border-radius:10px;background:var(--df-bg-warm);
+                  text-transform:none;letter-spacing:normal;color:var(--df-ink)}
+  .reg-card input:focus{outline:none;border-color:var(--df-green);box-shadow:0 0 0 3px rgba(0,143,103,.15)}
+  .reg-card .btn{margin-top:8px;border:none;cursor:pointer;width:100%;text-align:center}
+  .reg-card .btn[disabled]{opacity:.6;cursor:default}
+  .reg-error{font-family:var(--df-ui);font-size:14px;color:var(--df-red)}
+  @media(max-width:560px){ .reg-card{padding:34px 22px;border-radius:14px} }
+</style>
+</head>
+<body>
+
+  <header class="topbar">
+    <img src="../../assets/logo.png" alt="#DramaFree">
+    <div class="topright">
+      <nav class="langnav"><a href="../../rs/vebinar-uvod-u-cisti-jezik-17062026/" class="active">RS</a><a href="../../en/webinar-introduction-to-clean-language-17062026/">EN</a><a href="../../ru/vebinar-vvedenie-v-chistyy-yazyk-17062026/">RU</a></nav>
+      <a class="btn js-open-reg" href="#prijava">Prijavi se</a>
+    </div>
+  </header>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="kicker">Online vebinar · Besplatno</span>
+        <h1>Uvod u Čisti jezik za timove i grupe</h1>
+        <p class="sub">Manje pretpostavki. Manje drame. Više razumevanja.</p>
+        <div class="meta">
+          <span><span class="d">•</span>Sreda, 17. jun 2026.</span>
+          <span><span class="d">•</span>18:00–20:00</span>
+          <span><span class="d">•</span>Online</span>
+        </div>
+        <div class="ctas">
+          <a class="btn js-open-reg" href="#prijava">Prijavi se</a>
+          <a class="btn ghost" href="#o-dogadjaju">Saznaj više</a>
+        </div>
+        <div class="cap">Dvosatni vebinar uživo, uz vreme za praktični rad. Broj mesta je ograničen.</div>
+        <div class="lead-by">Vodi <strong>Svetlana Shapovaliants</strong> — Clean Facilitator · Master Systemic Modeler · ICF PCC Assessor</div>
+      </div>
+      <div class="hero-visual">
+        <span class="accent"></span>
+        <img src="../../assets/svetlana.jpg" alt="Svetlana Shapovaliants">
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== O DOGAĐAJU (LinkedIn event copy, verbatim) ===== -->
+  <section class="block" id="o-dogadjaju">
+    <div class="wrap">
+      <span class="kicker">O događaju</span>
+      <h2>Uvod u Čisti jezik za timove i grupe</h2>
+
+      <p style="margin-top:18px">Na sve interakcije u radu utiče usmeravanje pažnje koju ljudi poklanjaju jedni drugima. Svaki oblik preterane drame, prezira, nesporazuma, sabotaže ili konflikta troši vreme i energiju, zahteva dodatni napor i narušava pozitivnu i konstruktivnu atmosferu.</p>
+
+      <p class="lead-strong">Na dvosatnom besplatnom vebinaru upoznaćemo se sa Čistim jezikom i Sistemskim modeliranjem i istražiti:</p>
+      <div class="item">✅ Kako percipiramo informacije i kako ih drugi mogu percipirati sasvim drugačije</div>
+      <div class="item">✅ Zašto dolazi do konflikata i da li se nešto može učiniti po tom pitanju</div>
+      <div class="item">✅ Kako se Čisti jezik može primeniti u koučingu, treningu i konsaltingu</div>
+      <div class="item">✅ Kako se ovaj pristup može koristiti u svakodnevnom životu, na poslu i kod kuće</div>
+      <div class="item">✅ Primena u zdravstvu, obrazovanju, marketingu i prodaji</div>
+      <div class="item">✅ Kako se koristi pri vođenju sastanaka, komunikaciji u timovima, obavljanju intervjua za posao i drugim situacijama</div>
+      <div class="item">✅ Koje organizacije već koriste ovaj pristup i kakve rezultate donosi</div>
+      <div class="item">✅ Odakle početi i kako nastaviti učenje</div>
+
+      <h3 style="font-size:26px;margin:32px 0 8px">Šta je čisti jezik</h3>
+      <p>Čist jezik (Clean Language) je set pitanja koji nam olakšavaju slušanje koje je usmereno na to da otklonimo šum i sopstvene nesvesne predrasude iz komunikacije.</p>
+      <p>On nam pomaže da kroz usmeravanje pažnje, prisutnost i slušanje razumemo sebe, osobu sa kojom razgovaramo, grupe i timove, celu organizaciju i, na kraju, čitavo društvo u činu komunikacije.</p>
+      <p>To razumevanje se dešava kroz metaforu kao jedinicu mišljenja, koja leži između svesnog i nesvesnog. Svaka metafora ima različito značenje za različite ljude. Naš posao nije da tumačimo, već da pitamo, i zaista čujemo odgovor.</p>
+      <h3 style="font-size:26px;margin:32px 0 8px">Šta je sistemsko modeliranje</h3>
+      <p>Sistemsko modeliranje (Systemic Modelling) je efikasan način za prepoznavanje grupnih obrazaca. Pomaže da se uoče trenuci nepotrebne drame i da se preusmeri pažnja grupe ka radoznalosti i angažovanosti.</p>
+      <p>Time se podstiče saradnja i koordinisano delovanje usmereno ka rezultatima. Pristup se može primeniti u širokom spektru okruženja, od sala za sastanke do učionica.</p>
+
+      <p class="lead-strong">Ovaj otvoreni vebinar pruža vam mogućnost da:</p>
+      <div class="item">❓ Postavljate pitanja</div>
+      <div class="item">👐 Isprobate pristup u praksi</div>
+      <div class="item">👥 Upoznate facilitatore i istomišljenike</div>
+
+      <p class="lead-strong">Vebinar je posebno koristan ako ste:</p>
+      <div class="item">👩‍💼 Lider, roditelj ili vlasnik biznisa</div>
+      <div class="item">👨‍🏫 Edukator, kouč ili trener</div>
+      <div class="item">👨‍💼 Psiholog ili psihoterapeut</div>
+      <div class="item">👨‍💼 Stručnjak za prodaju ili marketing</div>
+
+      <p style="margin-top:18px">Ovaj vebinar je namenjen svakome ko želi da izgradi konstruktivnije interakcije u timovima, grupama ili ličnom okruženju, a podrazumeva i vreme za praktični rad kako biste mogli da iskusite kako sve funkcioniše.</p>
+    </div>
+  </section>
+
+  <!-- ===== VODITELJKA (verbatim bio) ===== -->
+  <section class="block alt">
+    <div class="wrap">
+      <span class="kicker">Vebinar vodi</span>
+      <h2 style="margin-bottom:18px">Svetlana Shapovaliants</h2>
+      <div class="presenter">
+        <img src="../../assets/svetlana.jpg" alt="Svetlana Shapovaliants">
+        <div class="pbody">
+          <p>Svetlana ima više od 25 godina iskustva na vodećim pozicijma u velikim međunarodnim korporacijama.</p>
+          <p>Ona je individualni i timski kouč sa više od 4500 sati koučing iskustva od 2000. godine.</p>
+          <p>Kvalifikovani je Čisti Facilitator (Clean Facilitator), Sistemski Modelar na Master nivou i sertifikovani asesor za PCC nivo pri Međunarodnoj Federaciji Koučinga (ICF).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== O #DRAMAFREE (verbatim izvodi sa dramafree.world) ===== -->
+  <section class="block">
+    <div class="wrap">
+      <span class="kicker">O #DramaFree</span>
+      <h2>Ko smo mi</h2>
+      <p>Inspirišemo i podržavamo organizacije da stvore okruženja u kojima se ljudi osećaju sigurno, samopouzdano i slobodno da budu svoji, sarađuju autentično i zajedno postižu više.</p>
+
+      <h2 style="margin-top:34px">Šta radimo</h2>
+      <p>Osposobljavamo organizacije i timove da sazrevaju, unaprede saradnju i izgrade kulturu poverenja i efikasnosti.</p>
+      <div class="grid3">
+        <div class="g"><span class="num">01</span>Razvoj timova kroz facilitaciju, treninge i koučing</div>
+        <div class="g"><span class="num">02</span>Rešavanje konflikata i emocionalne dinamike kroz medijaciju i koučing. Stvaranje timova koji su samostalni u rešavanju konflikata</div>
+        <div class="g"><span class="num">03</span>Podrška liderima i liderskim timovima da stvore zajedničku, ubedljivu viziju i da svojim primerom žive dinamiku koju žele u celom poslovanju</div>
+      </div>
+
+      <h2 style="margin-top:34px">Zašto nam klijenti veruju</h2>
+      <p>Ne obećavamo tim bez nesuglasica. Garantujemo da ćete nakon rada sa nama imati alate da svaki konflikt pretvorite u priliku za rast: brzo, čisto i bez gubitka efikasnosti.</p>
+    </div>
+  </section>
+
+  <!-- ===== DETALJI ===== -->
+  <section class="block alt">
+    <div class="wrap">
+      <span class="kicker">Detalji</span>
+      <h2>Ključne informacije</h2>
+      <div class="details-row">
+        <div class="d"><span class="k">Datum</span><span class="v">17. jun 2026.</span></div>
+        <div class="d"><span class="k">Vreme</span><span class="v">18:00–20:00</span></div>
+        <div class="d"><span class="k">Trajanje</span><span class="v">2 sata</span></div>
+        <div class="d"><span class="k">Format</span><span class="v">Online</span></div>
+        <div class="d"><span class="k">Kotizacija</span><span class="v">Besplatno</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <span class="kicker" style="color:var(--df-coral)">Rezerviši mesto</span>
+    <h2>Pridruži se vebinaru</h2>
+    <p>Ponesi prve alate Čistog jezika u svoj tim. Broj mesta je ograničen.</p>
+    <a class="btn js-open-reg" href="#prijava">Prijavi se</a>
+  </section>
+
+  <footer>
+    <img src="../../assets/logo.png" alt="#DramaFree">
+    <div>Inspiring and supporting businesses to create environments where people feel safe, confident, and free to be themselves.</div>
+    <div style="margin-top:12px">
+      <a href="mailto:svetlana@dramafree.world">svetlana@dramafree.world</a> &nbsp;·&nbsp;
+      <a href="tel:+381621252736">+381 62 1252 736</a> &nbsp;·&nbsp;
+      <a href="https://dramafree.world">dramafree.world</a>
+    </div>
+    <div style="margin-top:8px;color:#b3b3b3">93 Stoyana Aralice, Beograd · © 2026 #DramaFree</div>
+  </footer>
+
+  <!-- ===== Registraciona forma (modal overlay) ===== -->
+  <div class="reg-overlay" id="regModal" role="dialog" aria-modal="true" aria-labelledby="regTitle">
+    <div class="reg-card">
+      <button class="reg-close" id="regClose" aria-label="Zatvori">&times;</button>
+      <span class="kicker" style="color:var(--df-red)">Prijava na vebinar</span>
+      <h2 id="regTitle">Rezerviši svoje mesto</h2>
+      <p class="reg-sub">Sreda, 17. jun 2026. · 18:00–20:00 · Online · Besplatno</p>
+      <form id="regForm" novalidate>
+        <label>Ime<input type="text" name="firstName" required autocomplete="given-name"></label>
+        <label>Prezime<input type="text" name="lastName" required autocomplete="family-name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <div class="reg-error" id="regError" role="alert"></div>
+        <button type="submit" class="btn" id="regSubmit">Pošalji prijavu</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="../../registration.config.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    const cfg = window.DRAMAFREE_REG_CONFIG || {};
+    const SOURCE = 'rs';
+    let db = null;
+    try {
+      const fc = cfg.FIREBASE_CONFIG || {};
+      if (fc.databaseURL && !/PASTE/.test(fc.apiKey || "")) db = getDatabase(initializeApp(fc));
+    } catch (e) { console.error("Firebase init:", e); }
+
+    const modal = document.getElementById('regModal');
+    const form = document.getElementById('regForm');
+    const errEl = document.getElementById('regError');
+    const submitBtn = document.getElementById('regSubmit');
+
+    const open = (e) => { if (e) e.preventDefault(); modal.classList.add('open'); document.body.style.overflow = 'hidden'; setTimeout(() => form.firstName.focus(), 60); };
+    const close = () => { modal.classList.remove('open'); document.body.style.overflow = ''; errEl.textContent = ''; };
+
+    document.querySelectorAll('.js-open-reg').forEach(b => b.addEventListener('click', open));
+    document.getElementById('regClose').addEventListener('click', close);
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errEl.textContent = '';
+      const firstName = form.firstName.value.trim();
+      const lastName = form.lastName.value.trim();
+      const email = form.email.value.trim();
+      if (!firstName || !lastName || !email) { errEl.textContent = 'Molimo popunite sva polja.'; return; }
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { errEl.textContent = 'Unesite ispravnu email adresu.'; return; }
+      submitBtn.disabled = true; submitBtn.textContent = 'Šaljem…';
+      try {
+        if (!db) throw new Error('not-configured');
+        await push(ref(db, cfg.PATH || 'registrations'), {
+          firstName, lastName, email,
+          event: cfg.EVENT || 'cisti-jezik-vebinar', source: SOURCE,
+          createdAt: Date.now(),
+          url: location.href,
+          userAgent: navigator.userAgent
+        });
+        window.location.href = '../hvala/';
+      } catch (err) {
+        console.error(err);
+        errEl.textContent = (err.message === 'not-configured')
+          ? 'Forma još nije povezana sa bazom (Firebase config nije unet u registration.config.js).'
+          : 'Došlo je do greške pri slanju. Pokušajte ponovo.';
+        submitBtn.disabled = false; submitBtn.textContent = 'Pošalji prijavu';
+      }
+    });
+  </script>
+
+</body>
+</html>
