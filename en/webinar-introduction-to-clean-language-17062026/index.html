@@ -315,11 +315,12 @@
         if (!db) throw new Error('not-configured');
         await push(ref(db, cfg.PATH || 'registrations'), {
           firstName, lastName, email,
-          event: cfg.EVENT || 'cisti-jezik-vebinar', source: SOURCE,
+          event: cfg.EVENT || 'cisti-jezik-vebinar', source: SOURCE, type: 'registration',
           createdAt: Date.now(),
           url: location.href,
           userAgent: navigator.userAgent
         });
+        try{ sessionStorage.setItem('df_reg', JSON.stringify({firstName,lastName,email})); }catch(e){}
         window.location.href = '../thank-you/';
       } catch (err) {
         console.error(err);

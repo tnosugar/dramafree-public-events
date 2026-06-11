@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="../../assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 <title>Thank you for registering — #DramaFree webinar</title>
 <meta name="robots" content="noindex">
@@ -15,39 +14,114 @@
 <style>
   :root{--df-red:#E51B21;--df-green:#008F67;--df-coral:#FF8562;--df-teal:#244858;--df-ink:#2B2B2B;--df-gray:#6b6b6b;--df-line:#E4E0D8;--df-bg:#FFFFFF;--df-bg-warm:#FAF8F3;--df-serif:"Cormorant",Georgia,"Times New Roman",serif;--df-body:Georgia,"Times New Roman",Times,serif;--df-ui:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--df-bg-warm);color:var(--df-ink);font-family:var(--df-body);min-height:100vh;display:flex;flex-direction:column}
+  body{margin:0;background:var(--df-bg-warm);color:var(--df-ink);font-family:var(--df-body);line-height:1.65}
   .topbar{display:flex;align-items:center;padding:16px 28px;background:var(--df-bg);border-bottom:1px solid var(--df-line)}
   .topbar img{height:40px}
-  main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 24px;text-align:center}
-  .card{max-width:620px}
-  .mark{width:84px;height:84px;border-radius:50%;background:var(--df-green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;margin:0 auto 24px;font-family:var(--df-ui)}
-  .kicker{font-family:var(--df-ui);font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--df-red);font-size:13px}
-  h1{font-family:var(--df-serif);color:var(--df-teal);font-weight:600;font-size:clamp(40px,7vw,64px);margin:14px 0 0;line-height:1.1}
-  p{font-size:19px;color:#3c4a52;max-width:520px;margin:18px auto 0;line-height:1.6}
-  .ph{font-style:italic;color:var(--df-gray)}
-  .meta{font-family:var(--df-ui);font-weight:600;color:var(--df-teal);font-size:15px;margin-top:24px}
-  .btn{display:inline-block;font-family:var(--df-ui);font-weight:700;font-size:16px;text-decoration:none;background:var(--df-teal);color:#fff;padding:14px 32px;border-radius:40px;margin-top:30px}
-  .btn:hover{background:#1b3744}
+  .wrap{max-width:600px;margin:0 auto;padding:48px 24px}
+  .center{text-align:center}
+  .mark{width:78px;height:78px;border-radius:50%;background:var(--df-green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto 22px;font-family:var(--df-ui)}
+  .kicker{font-family:var(--df-ui);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--df-red);font-size:13px}
+  h1{font-family:var(--df-serif);color:var(--df-teal);font-weight:600;font-size:clamp(36px,6vw,52px);margin:12px 0 0;line-height:1.1}
+  p{font-size:18px;color:#3c4a52;margin:16px 0 0}
+  .meta{font-family:var(--df-ui);font-weight:600;color:var(--df-teal);font-size:15px;margin-top:22px}
+
+  .offer{background:#fff;border:1px solid var(--df-line);border-radius:16px;padding:32px 30px;margin-top:40px;box-shadow:0 10px 30px rgba(36,72,88,.06)}
+  .offer .kicker{color:var(--df-coral)}
+  .offer h2{font-family:var(--df-serif);color:var(--df-teal);font-weight:600;font-size:28px;margin:8px 0 0;line-height:1.15}
+  .offer .lead{font-size:16px;color:#3c4a52;margin-top:12px}
+  .badge{display:inline-block;font-family:var(--df-ui);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--df-red);border-radius:20px;padding:5px 14px;margin-bottom:8px}
+  form{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+  .frow{display:flex;gap:14px}
+  .frow label{flex:1}
+  label{font-family:var(--df-ui);font-size:12px;font-weight:700;color:var(--df-teal);text-transform:uppercase;letter-spacing:.05em;display:flex;flex-direction:column;gap:6px}
+  input{font-family:var(--df-body);font-size:16px;font-weight:400;padding:12px 14px;border:1px solid var(--df-line);border-radius:10px;background:var(--df-bg-warm);text-transform:none;letter-spacing:normal;color:var(--df-ink)}
+  input:focus{outline:none;border-color:var(--df-green);box-shadow:0 0 0 3px rgba(0,143,103,.15)}
+  .btn{display:inline-block;font-family:var(--df-ui);font-weight:700;font-size:16px;text-decoration:none;background:var(--df-red);color:#fff;padding:14px 30px;border-radius:40px;border:none;cursor:pointer;text-align:center}
+  .btn:hover{background:#c8161b}
+  .btn[disabled]{opacity:.6;cursor:default}
+  .err{font-family:var(--df-ui);font-size:14px;color:var(--df-red)}
+  .ok{display:none;background:#eef7f3;border:1px solid #b9e0d2;border-radius:12px;padding:20px 22px;margin-top:8px;color:var(--df-teal);font-family:var(--df-ui)}
+  .back{display:inline-block;font-family:var(--df-ui);font-size:14px;color:var(--df-teal);text-decoration:none;margin-top:30px}
   footer{font-family:var(--df-ui);font-size:13px;color:var(--df-gray);text-align:center;padding:24px}
   footer a{color:var(--df-teal);text-decoration:none}
+  @media(max-width:520px){ .frow{flex-direction:column} }
 </style>
 </head>
 <body>
   <header class="topbar"><img src="../../assets/logo.png" alt="#DramaFree"></header>
-  <main>
-    <div class="card">
+  <div class="wrap">
+    <div class="center">
       <div class="mark">✓</div>
       <span class="kicker">Registration received</span>
       <h1>Thank you for registering!</h1>
-      <p class="ph">[Placeholder] Thank-you copy goes here — confirmation of your registration, what happens next, the access link to the webinar (Zoom/Meet) and a contact. We'll fill this in later.</p>
-      <p class="ph">[Placeholder] E.g.: "We've sent a confirmation to your email. The access link arrives the day before the event."</p>
+      <p>You'll soon receive a calendar invite with the Zoom link for this event. See you at the webinar.</p>
       <div class="meta">Wednesday, 17 June 2026 · 18:00–20:00 · Online</div>
-      <a class="btn" href="../webinar-introduction-to-clean-language-17062026/">Back to the event page</a>
     </div>
-  </main>
+
+    <div class="offer">
+      <span class="badge">Only 10 spots</span><br>
+      <span class="kicker">Exclusive offer</span>
+      <h2>A 1:1 consultation with Svetlana</h2>
+      <p class="lead">After the webinar we're offering only <strong>10 exclusive 1:1 consultations</strong> with Svetlana (30 minutes each). In your session you can bring concrete challenges from your organizational and work environment and explore together how Clean Language can be applied to solving them.</p>
+      <form id="consultForm" novalidate>
+        <div class="frow">
+          <label>First name<input type="text" name="firstName" required autocomplete="given-name"></label>
+          <label>Last name<input type="text" name="lastName" required autocomplete="family-name"></label>
+        </div>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+        <label>Company / organization<input type="text" name="company" required autocomplete="organization"></label>
+        <div class="err" id="consultErr" role="alert"></div>
+        <button type="submit" class="btn" id="consultBtn">Book a consultation</button>
+      </form>
+      <div class="ok" id="consultOk">Thank you! Your 1:1 consultation request has been received. We'll reach out with a time — spots are limited to 10.</div>
+    </div>
+
+    <div class="center"><a class="back" href="../webinar-introduction-to-clean-language-17062026/">← Back to the event page</a></div>
+  </div>
   <footer>
     <a href="mailto:svetlana@dramafree.world">svetlana@dramafree.world</a> &nbsp;·&nbsp;
     <a href="https://dramafree.world">dramafree.world</a> &nbsp;·&nbsp; © 2026 #DramaFree
   </footer>
+
+  <script src="../../registration.config.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+    const cfg = window.DRAMAFREE_REG_CONFIG || {};
+    let db = null;
+    try { const fc = cfg.FIREBASE_CONFIG || {}; if (fc.databaseURL && !/PASTE/.test(fc.apiKey||"")) db = getDatabase(initializeApp(fc)); } catch(e){ console.error(e); }
+
+    const form = document.getElementById('consultForm');
+    const errEl = document.getElementById('consultErr');
+    const btn = document.getElementById('consultBtn');
+    const okEl = document.getElementById('consultOk');
+
+    try { const s = JSON.parse(sessionStorage.getItem('df_reg')||'{}');
+      if (s.firstName) form.firstName.value = s.firstName;
+      if (s.lastName)  form.lastName.value  = s.lastName;
+      if (s.email)     form.email.value     = s.email;
+    } catch(e){}
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault(); errEl.textContent='';
+      const firstName=form.firstName.value.trim(), lastName=form.lastName.value.trim(), email=form.email.value.trim(), company=form.company.value.trim();
+      if(!firstName||!lastName||!email||!company){ errEl.textContent='Please fill in all fields.'; return; }
+      if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ errEl.textContent='Please enter a valid email address.'; return; }
+      btn.disabled=true; btn.textContent='Sending…';
+      try{
+        if(!db) throw new Error('not-configured');
+        await push(ref(db, cfg.PATH || 'registrations'), {
+          firstName, lastName, email, company,
+          type:'consultation',
+          event: cfg.EVENT || 'cisti-jezik-vebinar', source:'en',
+          createdAt: Date.now(), url: location.href, userAgent: navigator.userAgent
+        });
+        form.style.display='none'; okEl.style.display='block';
+      }catch(err){ console.error(err);
+        errEl.textContent = (err.message==='not-configured') ? "The form isn't connected to the database yet." : 'Something went wrong. Please try again.';
+        btn.disabled=false; btn.textContent='Book a consultation';
+      }
+    });
+  </script>
 </body>
 </html>
