@@ -40,9 +40,17 @@
   .langnav a:hover{color:var(--df-teal)}
   .langnav a.active{color:#fff;background:var(--df-teal)}
   .langnav a.active:hover{color:#fff}
+  @media(max-width:560px){
+    .topbar{padding:10px 14px}
+    .topbar img{height:34px}
+    .topbar .topright{gap:10px}
+    .langnav{gap:5px}
+    .langnav a{padding:3px 7px;letter-spacing:0}
+    .topbar .btn{padding:8px 14px;font-size:13px}
+  }
 
   .btn{display:inline-block;font-family:var(--df-ui);font-weight:700;font-size:16px;text-decoration:none;
-       background:var(--df-red);color:#fff;padding:14px 32px;border-radius:40px}
+       background:var(--df-red);color:#fff;padding:14px 32px;border-radius:40px;white-space:nowrap}
   .btn:hover{background:#c8161b}
   .btn.ghost{background:transparent;color:var(--df-teal);border:2px solid var(--df-teal);padding:12px 28px}
   .btn.ghost:hover{background:var(--df-teal);color:#fff}
