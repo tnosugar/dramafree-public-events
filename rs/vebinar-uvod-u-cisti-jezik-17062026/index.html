@@ -387,14 +387,14 @@
       submitBtn.disabled = true; submitBtn.textContent = 'Šaljem…';
       try {
         if (!db) throw new Error('not-configured');
-        await push(ref(db, cfg.PATH || 'registrations'), {
+        const _ref = await push(ref(db, cfg.PATH || 'registrations'), {
           firstName, lastName, email,
           event: cfg.EVENT || 'cisti-jezik-vebinar', source: SOURCE, type: 'registration',
           createdAt: Date.now(),
           url: location.href,
           userAgent: navigator.userAgent
         });
-        try{ const _d=JSON.stringify({firstName,lastName,email}); sessionStorage.setItem('df_reg',_d); localStorage.setItem('df_reg',_d); }catch(e){}
+        try{ const _d=JSON.stringify({firstName,lastName,email,id:(_ref&&_ref.key)||null}); sessionStorage.setItem('df_reg',_d); localStorage.setItem('df_reg',_d); }catch(e){}
         window.location.href = '../hvala/';
       } catch (err) {
         console.error(err);

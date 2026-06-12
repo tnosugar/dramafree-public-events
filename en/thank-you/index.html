@@ -86,7 +86,7 @@
   <script src="../../registration.config.js"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+    import { getDatabase, ref, push, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
     const cfg = window.DRAMAFREE_REG_CONFIG || {};
     let db = null;
     try { const fc = cfg.FIREBASE_CONFIG || {}; if (fc.databaseURL && !/PASTE/.test(fc.apiKey||"")) db = getDatabase(initializeApp(fc)); } catch(e){ console.error(e); }
@@ -96,7 +96,9 @@
     const btn = document.getElementById('consultBtn');
     const okEl = document.getElementById('consultOk');
 
+    let regId = null;
     try { const s = JSON.parse(sessionStorage.getItem('df_reg')||localStorage.getItem('df_reg')||'{}');
+      regId = s.id || null;
       if (s.firstName) form.firstName.value = s.firstName;
       if (s.lastName)  form.lastName.value  = s.lastName;
       if (s.email)     form.email.value     = s.email;
@@ -110,12 +112,20 @@
       btn.disabled=true; btn.textContent='Sending…';
       try{
         if(!db) throw new Error('not-configured');
-        await push(ref(db, cfg.PATH || 'registrations'), {
+        if (regId) {
+          await update(ref(db, (cfg.PATH || 'registrations') + '/' + regId), {
+            company,
+            consultationRequested: true,
+            consultationAt: Date.now()
+          });
+        } else {
+          await push(ref(db, cfg.PATH || 'registrations'), {
           firstName, lastName, email, company,
           type:'consultation',
           event: cfg.EVENT || 'cisti-jezik-vebinar', source:'en',
           createdAt: Date.now(), url: location.href, userAgent: navigator.userAgent
         });
+        }
         form.style.display='none'; okEl.style.display='block';
       }catch(err){ console.error(err);
         errEl.textContent = (err.message==='not-configured') ? "The form isn't connected to the database yet." : 'Something went wrong. Please try again.';
